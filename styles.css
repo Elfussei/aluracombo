@@ -18,158 +18,70 @@ body {
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Adicionado para melhor controle do layout */
+    box-sizing: border-box; /* Garante que padding e border não afetem o tamanho total dos elementos */
 }
 
 .principal {
     background-image: url("img/Background.png");
     background-repeat: no-repeat;
-    background-size: cover; /* Alterado para cover para melhor cobertura em telas menores */
+    background-size: cover;
+    display: flex; /* Usar flex para melhor alinhamento */
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 2em; /* Adicionado padding para evitar que o conteúdo encoste nas bordas */
+    padding: 2em;
 }
 
 .container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os elementos se ajustem em telas menores */
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Alterado para unidades fr para melhor flexibilidade */
-    gap: 1em; /* Adicionado espaçamento entre as colunas */
+}
+
+.container__caixa, .secundario {
+    flex: 1 1 50%; /* Os elementos ocuparão 50% da largura disponível */
     padding: 2em;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .container__caixa, .secundario {
+        flex: 1 1 100%; /* Em telas menores, os elementos ocuparão 100% da largura */
+        padding: 1em;
+    }
+}
+
+.container__titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.container__imagem {
+    margin: 1em 0;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.container__botao, .botao_secundario {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 0.3125rem;
+    text-decoration: none;
+    color: var(--branco-principal);
 }
 
 .container__botao {
     background-color: var(--botao-azul);
-    border-radius: 0.3125rem;
-    padding: 1em;
-    color: var(--branco-principal);
-    display: block;
-    text-decoration: none;
-    margin-bottom: 1em;
-    text-align: center; /* Garantir que o texto fique centralizado */
 }
 
 .botao_secundario {
     background-color: transparent;
     border: 0.125rem solid var(--branco-principal);
-    padding: 0.5em; /* Adicionado padding para melhor toque em telas sensíveis */
-    border-radius: 0.3125rem;
-    text-align: center;
-}
-
-.container__aviso {
-    font-size: 0.75rem;
-    color: var(--cinza-secundario);
-}
-
-.container__titulo {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 0.5em; /* Adicionado espaçamento abaixo do título */
-}
-
-.container__imagem {
-    margin: 1em 0 2em 0;
-}
-
-.container__caixa {
-    margin: 0 6em;
-}
-
-.secundario__imagem {
-    width: 80%;
-    max-width: 300px; /* Limita a largura máxima para melhor adaptação */
-    height: auto; /* Mantém a proporção da imagem */
-}
-
-.secundario {
-    align-items: center;
-    margin: 0 10em;
-}
-
-.descricao__titulo {
-    font-weight: 700;
-    font-size: 2rem; /* Reduzido de 48px para 2rem para melhor escalabilidade */
-    color: var(--branco-principal);
-    margin-bottom: 0.5em;
-}
-
-.descricao__texto {
-    color: var(--cinza-secundario);
-    font-size: 1rem; /* Ajuste de tamanho de fonte para melhor legibilidade */
-}
-
-.secundario__botao {
-    display: inline-block;
-    margin-top: 1em;
-}
-
-.container__descricao {
-    padding: 2em;
-}
-
-.dispositivos__lista {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Adicionado para permitir quebra de linha em telas menores */
-    list-style-type: none;
-    margin: 5em 0;
-    padding: 0;
-}
-
-.dispositivos {
-    text-align: center;
-    margin: 1em; /* Adicionado margem para espaçamento entre itens */
-}
-
-.dispositivos__titulo {
-    font-size: 3rem;
-    color: var(--branco-principal);
-    margin-bottom: 1em;
-}
-
-.lista_item {
-    font-size: 2rem;
-    color: var(--branco-principal);
-}
-
-.rodape {
-    margin: 2em 0;
-}
-
-.rodape__logo {
-    display: block;
-    margin: 3.75rem auto;
-}
-
-.rodape__lista {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Adicionado para permitir quebra de linha em telas menores */
-    margin-bottom: 6em;
-    list-style-type: none;
-    padding: 0;
-}
-
-.lista__link a {
-    text-decoration: none;
-    color: var(--branco-principal);
-    margin: 0 0.5em; /* Ajustado para melhor espaçamento */
-    transition: color 0.3s ease; /* Adicionado transição suave */
-}
-
-.lista__link a:hover {
-    color: var(--botao-azul);
-}
-
-.lista__link a:active{
-    color: violet;
-}
-
-.rodape__texto {
-    color: var(--cinza-secundario);
-    text-align: center;
-    margin-bottom: 1em;
 }
 
 .container__botao:hover {
@@ -177,57 +89,107 @@ body {
     color: var(--cor-de-fundo);
 }
 
-/* Media Queries para responsividade em dispositivos como iPhone 13 */
-@media (max-width: 390px) {
-    .container {
-        grid-template-columns: 1fr; /* Muda para uma coluna em telas menores */
-        padding: 1em;
-    }
+.container__aviso {
+    font-size: 0.875rem;
+    color: var(--cinza-secundario);
+}
 
-    .container__caixa {
-        margin: 0 1em; /* Reduz a margem lateral */
-    }
+.secundario__imagem {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+}
 
-    .secundario {
-        margin: 0 2em; /* Reduz a margem lateral */
-    }
+.descricao__titulo {
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--branco-principal);
+    margin-bottom: 0.5em;
+}
 
-    .descricao__titulo {
-        font-size: 1.5rem; /* Reduz o tamanho da fonte */
-    }
+.descricao__texto {
+    color: var(--cinza-secundario);
+    font-size: 1rem;
+    line-height: 1.5;
+}
 
-    .dispositivos__titulo {
-        font-size: 2.5rem; /* Ajuste do tamanho da fonte */
+.dispositivos {
+    text-align: center;
+    padding: 2em 1em;
+}
+
+.dispositivos__titulo {
+    font-size: 2.5rem;
+    margin-bottom: 1em;
+}
+
+.dispositivos__lista {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista_item {
+    font-size: 1.25rem;
+    margin: 0.5em 1em;
+}
+
+.rodape {
+    text-align: center;
+    padding: 2em 1em;
+}
+
+.rodape__logo {
+    margin-bottom: 2em;
+}
+
+.rodape__lista {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2em 0;
+}
+
+.lista__link {
+    margin: 0 0.5em;
+}
+
+.lista__link a {
+    color: var(--branco-principal);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.lista__link a:hover {
+    color: var(--botao-azul);
+}
+
+.rodape__texto {
+    color: var(--cinza-secundario);
+    font-size: 0.875rem;
+}
+
+/* Media Queries para dispositivos móveis */
+@media (max-width: 480px) {
+    .container__titulo, .descricao__titulo, .dispositivos__titulo {
+        font-size: 1.5rem;
     }
 
     .lista_item {
-        font-size: 1.5rem; /* Ajuste do tamanho da fonte */
-    }
-
-    .rodape__lista {
-        flex-direction: column; /* Alinha os itens em coluna */
-        align-items: center;
-    }
-
-    .lista__link a {
-        margin: 0.5em 0; /* Ajusta o espaçamento entre links */
+        font-size: 1rem;
     }
 
     .container__botao, .botao_secundario {
-        width: 100%; /* Botões ocupam toda a largura disponível */
-        padding: 0.75em; /* Ajusta o padding para melhor toque */
-    }
-
-    .secundario__imagem {
-        width: 100%; /* Imagem ocupa toda a largura disponível */
-        max-width: none; /* Remove a limitação de largura */
-    }
-
-    .rodape__logo {
-        margin: 2rem auto; /* Reduz a margem */
+        padding: 0.75em;
     }
 
     .rodape__texto {
-        font-size: 0.875rem; /* Ajusta o tamanho da fonte */
+        font-size: 0.75rem;
     }
 }
