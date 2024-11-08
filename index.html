@@ -1,195 +1,104 @@
-:root { 
-    --branco-principal: #FFFFFF;
-    --cinza-secundario: #C0C0C0;
-    --botao-azul: #167BF7;
-    --cor-de-fundo: #00030C;
-    --fonte-principal: 'Inter', sans-serif;
-    --botao-azul-efeito: #72affb; 
-}
+<!DOCTYPE html>
+<html>
 
-body {
-    background-color: var(--cor-de-fundo);
-    color: var(--branco-principal);
-    font-family: var(--fonte-principal);
-    font-size: 1rem;
-    font-weight: 400;
-}
+<head>
+    <title>Alura Plus</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Garante que padding e border não afetem o tamanho total dos elementos */
-}
+<body>
+    <section class="principal container">
+        <div class="container__caixa">
+            <h1 class="container__titulo">Com o Combo+, você pode aproveitar a Alura+ e o Alura Língua por um preço
+                único.</h1>
+            <img src="img/Combo.png" alt="O combo+ é a junção do alura+ e o alura língua" class="container__imagem">
+            <a href="www.alura.com.br" class="container__botao">Assine por 12x de R$ 120,00*</a>
+            <a href="www.alura.com.br" class="container__botao botao_secundario">Assinar somente o Alura+</a>
+            <p class="container__aviso">*O preço pode variar caso a assinatura seja feita em outros planos.</p>
+        </div>
+    </section>
 
-.principal {
-    background-image: url("img/Background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex; /* Usar flex para melhor alinhamento */
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 2em;
-}
+    <section class="container secundario">
+        <img src="img/Plataformas.png" alt="Um monitor e um celular com a alura plus aberta" class="secundario__imagem">
+        <div class="container__descricao">
+            <h2 class="descricao__titulo">Assista do seu jeito</h2>
+            <p class="descricao__texto">Aproveite a tela grande da TV ou assista no tablet, laptop, celular e outros
+                aparelhos. Nossa seleção de cursos não para de crescer.</p>
+        </div>
+    </section>
 
-.container {
-    display: flex;
-    flex-wrap: wrap; /* Permite que os elementos se ajustem em telas menores */
-    min-height: 100vh;
-}
+    <section class="container secundario">
+        <div class="container__descricao">
+            <p class="descricao__texto">
+                Só o Combo+ oferece Alura+ e Alura Língua juntos para você ter acesso a cursos de diversas áreas da
+                tecnologia e aprender inglês ou espanhol, onde e como quiser.
+            </p>
+            <a href="www.alura.com.br" class="container__botao secundario__botao" container>Assine o Combo+</a>
+        </div>
+        <img src="img/Telas.png" alt="Tela do alura+ e alura língua" class="secundario__imagem">
+    </section>
 
-.container__caixa, .secundario {
-    flex: 1 1 50%; /* Os elementos ocuparão 50% da largura disponível */
-    padding: 2em;
-    box-sizing: border-box;
-}
+    <section class="container secundario">
+        <img src="img/Notebook.png" alt="Notebook com a página do curso HTML5 e CSS3 da Alura aberta"
+            class="secundario__imagem">
+        <div class="container__descricao">
+            <h2 class="descricao__titulo">Baixe seus cursos</h2>
+            <p class="descricao__texto">Baixe e assista quando e onde quiser. Assim, seus favoritos estão sempre com
+                você, até mesmo sem internet.</p>
+        </div>
+    </section>
+    <section class="dispositivos">
+        <h2 class="dispositivis__titulo">Disponivel nos seus dispositivos favoritos</h2>
+        <ul class="dispositivos__lista">
+            <li>
+                <img src="img/tv (1).png" alt="icone de televisão">
+                <h3 class="lista__item">TV</h3>
+            </li>
+            <li>
+                <img src="img/computador (1).png" alt="icone de computador">
+                <h3 class="lista__item">Computador</h3>
+            </li>
+            <li>
+                <img src="img/celular (1).png" alt="icone de celular">
+                <h3 class="lista__item">Celular</h3>
+            </li>
+        </ul>
+    </section>
 
-@media (max-width: 768px) {
-    .container__caixa, .secundario {
-        flex: 1 1 100%; /* Em telas menores, os elementos ocuparão 100% da largura */
-        padding: 1em;
-    }
-}
+    <footer class="rodape">
+        <img src="img/Logo.png" alt="alura +" class="rodape__logo">
+        <ul class="rodape__lista">
+            <li class="lista__link">
+                <a href="#">Idioma</a>
+            </li>
+            <li class="lista__link">
+                <a href="#">Dispositivos Compativos</a>
+            </li>
+            <li class="lista__link">
+                <a href="#">Contrato de Assinatura</a>
+            </li>
+            <li class="lista__link">
+                <a href="#">Politica de Privacidade</a>
+            </li>
+            <li class="lista__link">
+                <a href="#">Proteção de dados em Portugal</a>
+            </li>
+            <li class="lista__link">
+                <a href="#">Anuncios Personalizados</a>
+            </li>
+            <li class="lista__link">
+                <a href="#">Ajuda</a>
+            </li>
+        </ul>
+        <p class="rodape__texto">® 2021 Alura, Alura+ e Alura Língua. Todos os direitos reservados. Serviço de assinatura paga. Conteúdo sujeito a disponibilidade.</p>
+        <p class="rodape__texto">Alura+ é um serviço pago, baseado em assinatura e sujeito a termos e condições. O serviço Alura+ é comercializado por Aovs Sistemas de Informática S.A., Rua Vergueiro, 3185 - Liberdade, São Paulo - SP, 04101-300, Brasil e CNPJ 05.555.382/0001-33</p>
+    </footer>
 
-.container__titulo {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1em;
-}
+</body>
 
-.container__imagem {
-    margin: 1em 0;
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-}
-
-.container__botao, .botao_secundario {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 1em;
-    margin-bottom: 1em;
-    border-radius: 0.3125rem;
-    text-decoration: none;
-    color: var(--branco-principal);
-}
-
-.container__botao {
-    background-color: var(--botao-azul);
-}
-
-.botao_secundario {
-    background-color: transparent;
-    border: 0.125rem solid var(--branco-principal);
-}
-
-.container__botao:hover {
-    background-color: var(--botao-azul-efeito);
-    color: var(--cor-de-fundo);
-}
-
-.container__aviso {
-    font-size: 0.875rem;
-    color: var(--cinza-secundario);
-}
-
-.secundario__imagem {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    margin: 0 auto;
-}
-
-.descricao__titulo {
-    font-weight: 700;
-    font-size: 2rem;
-    color: var(--branco-principal);
-    margin-bottom: 0.5em;
-}
-
-.descricao__texto {
-    color: var(--cinza-secundario);
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.dispositivos {
-    text-align: center;
-    padding: 2em 1em;
-}
-
-.dispositivos__titulo {
-    font-size: 2.5rem;
-    margin-bottom: 1em;
-}
-
-.dispositivos__lista {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.lista_item {
-    font-size: 1.25rem;
-    margin: 0.5em 1em;
-}
-
-.rodape {
-    text-align: center;
-    padding: 2em 1em;
-}
-
-.rodape__logo {
-    margin-bottom: 2em;
-}
-
-.rodape__lista {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2em 0;
-}
-
-.lista__link {
-    margin: 0 0.5em;
-}
-
-.lista__link a {
-    color: var(--branco-principal);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.lista__link a:hover {
-    color: var(--botao-azul);
-}
-
-.rodape__texto {
-    color: var(--cinza-secundario);
-    font-size: 0.875rem;
-}
-
-/* Media Queries para dispositivos móveis */
-@media (max-width: 480px) {
-    .container__titulo, .descricao__titulo, .dispositivos__titulo {
-        font-size: 1.5rem;
-    }
-
-    .lista_item {
-        font-size: 1rem;
-    }
-
-    .container__botao, .botao_secundario {
-        padding: 0.75em;
-    }
-
-    .rodape__texto {
-        font-size: 0.75rem;
-    }
-}
+</html>
