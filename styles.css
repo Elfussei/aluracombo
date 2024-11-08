@@ -1,9 +1,9 @@
-:root {
+:root { 
     --branco-principal: #FFFFFF;
     --cinza-secundario: #C0C0C0;
     --botao-azul: #167BF7;
     --cor-de-fundo: #00030C;
-    --fonte-principal: 'Inter';
+    --fonte-principal: 'Inter', sans-serif;
     --botao-azul-efeito: #72affb; 
 }
 
@@ -18,20 +18,24 @@ body {
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Adicionado para melhor controle do layout */
 }
 
 .principal {
     background-image: url("img/Background.png");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover; /* Alterado para cover para melhor cobertura em telas menores */
     align-items: center;
     text-align: center;
+    padding: 2em; /* Adicionado padding para evitar que o conteúdo encoste nas bordas */
 }
 
 .container {
-    height: 100vh;
+    min-height: 100vh;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr; /* Alterado para unidades fr para melhor flexibilidade */
+    gap: 1em; /* Adicionado espaçamento entre as colunas */
+    padding: 2em;
 }
 
 .container__botao {
@@ -42,11 +46,15 @@ body {
     display: block;
     text-decoration: none;
     margin-bottom: 1em;
+    text-align: center; /* Garantir que o texto fique centralizado */
 }
 
 .botao_secundario {
     background-color: transparent;
-    border: 0.125rem solid var(--branco-principal)
+    border: 0.125rem solid var(--branco-principal);
+    padding: 0.5em; /* Adicionado padding para melhor toque em telas sensíveis */
+    border-radius: 0.3125rem;
+    text-align: center;
 }
 
 .container__aviso {
@@ -57,6 +65,7 @@ body {
 .container__titulo {
     font-size: 1.75rem;
     font-weight: 700;
+    margin-bottom: 0.5em; /* Adicionado espaçamento abaixo do título */
 }
 
 .container__imagem {
@@ -69,6 +78,8 @@ body {
 
 .secundario__imagem {
     width: 80%;
+    max-width: 300px; /* Limita a largura máxima para melhor adaptação */
+    height: auto; /* Mantém a proporção da imagem */
 }
 
 .secundario {
@@ -78,13 +89,14 @@ body {
 
 .descricao__titulo {
     font-weight: 700;
-    font-size: 48px;
+    font-size: 2rem; /* Reduzido de 48px para 2rem para melhor escalabilidade */
     color: var(--branco-principal);
-    margin-bottom: 0.1em;
+    margin-bottom: 0.5em;
 }
 
 .descricao__texto {
     color: var(--cinza-secundario);
+    font-size: 1rem; /* Ajuste de tamanho de fonte para melhor legibilidade */
 }
 
 .secundario__botao {
@@ -99,16 +111,21 @@ body {
 .dispositivos__lista {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Adicionado para permitir quebra de linha em telas menores */
     list-style-type: none;
     margin: 5em 0;
+    padding: 0;
 }
 
 .dispositivos {
     text-align: center;
+    margin: 1em; /* Adicionado margem para espaçamento entre itens */
 }
+
 .dispositivos__titulo {
-    font-size:3rem;
+    font-size: 3rem;
     color: var(--branco-principal);
+    margin-bottom: 1em;
 }
 
 .lista_item {
@@ -117,7 +134,7 @@ body {
 }
 
 .rodape {
-    margin: 2em 0; /* 2em de margem superior e inferior */
+    margin: 2em 0;
 }
 
 .rodape__logo {
@@ -128,14 +145,17 @@ body {
 .rodape__lista {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Adicionado para permitir quebra de linha em telas menores */
     margin-bottom: 6em;
     list-style-type: none;
+    padding: 0;
 }
 
 .lista__link a {
     text-decoration: none;
     color: var(--branco-principal);
-    margin-left: 1em;
+    margin: 0 0.5em; /* Ajustado para melhor espaçamento */
+    transition: color 0.3s ease; /* Adicionado transição suave */
 }
 
 .lista__link a:hover {
@@ -155,4 +175,59 @@ body {
 .container__botao:hover {
     background-color: var(--botao-azul-efeito);
     color: var(--cor-de-fundo);
+}
+
+/* Media Queries para responsividade em dispositivos como iPhone 13 */
+@media (max-width: 390px) {
+    .container {
+        grid-template-columns: 1fr; /* Muda para uma coluna em telas menores */
+        padding: 1em;
+    }
+
+    .container__caixa {
+        margin: 0 1em; /* Reduz a margem lateral */
+    }
+
+    .secundario {
+        margin: 0 2em; /* Reduz a margem lateral */
+    }
+
+    .descricao__titulo {
+        font-size: 1.5rem; /* Reduz o tamanho da fonte */
+    }
+
+    .dispositivos__titulo {
+        font-size: 2.5rem; /* Ajuste do tamanho da fonte */
+    }
+
+    .lista_item {
+        font-size: 1.5rem; /* Ajuste do tamanho da fonte */
+    }
+
+    .rodape__lista {
+        flex-direction: column; /* Alinha os itens em coluna */
+        align-items: center;
+    }
+
+    .lista__link a {
+        margin: 0.5em 0; /* Ajusta o espaçamento entre links */
+    }
+
+    .container__botao, .botao_secundario {
+        width: 100%; /* Botões ocupam toda a largura disponível */
+        padding: 0.75em; /* Ajusta o padding para melhor toque */
+    }
+
+    .secundario__imagem {
+        width: 100%; /* Imagem ocupa toda a largura disponível */
+        max-width: none; /* Remove a limitação de largura */
+    }
+
+    .rodape__logo {
+        margin: 2rem auto; /* Reduz a margem */
+    }
+
+    .rodape__texto {
+        font-size: 0.875rem; /* Ajusta o tamanho da fonte */
+    }
 }
