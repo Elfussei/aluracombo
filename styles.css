@@ -3,7 +3,7 @@
     --cinza-secundario: #C0C0C0;
     --botao-azul: #167BF7;
     --cor-de-fundo: #00030C;
-    --fonte-principal: 'Inter';
+    --fonte-principal: 'Inter', sans-serif;
     --botao-azul-efeito: #72affb; 
 }
 
@@ -18,28 +18,29 @@ body {
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Garante que padding e border não afetem o tamanho total dos elementos */
 }
 
 .principal {
     background-image: url("img/Background.png");
     background-repeat: no-repeat;
     background-size: contain;
-    align-items: center;
-    text-align: center;
     display: flex; /* Adicionado para alinhar itens centralmente */
     justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center;
     height: 100vh; /* Garantir que ocupe a altura total */
 }
 
 .container {
     height: 100vh;
     display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 2em; /* Adicionado para espaçamento entre colunas */
-    max-width: 1200px; /* Limita a largura máxima para telas muito grandes */
+    grid-template-columns: 1fr 1fr; /* Duas colunas para dispositivos grandes */
+    gap: 2em; /* Espaçamento entre colunas */
+    max-width: 1200px; /* Limita a largura máxima para evitar estiramento em telas muito grandes */
     width: 100%;
     margin: 0 auto; /* Centraliza a container */
-    padding: 2em; /* Adicionado para espaçamento interno */
+    padding: 2em; /* Espaçamento interno */
 }
 
 .container__botao {
@@ -73,7 +74,7 @@ body {
 .container__titulo {
     font-size: 1.75rem;
     font-weight: 700;
-    margin-bottom: 0.5em; /* Adicionado espaçamento abaixo do título */
+    margin-bottom: 0.5em; /* Espaçamento abaixo do título */
 }
 
 .container__imagem {
@@ -127,7 +128,7 @@ body {
     justify-content: center;
     list-style-type: none;
     margin: 5em 0;
-    flex-wrap: wrap; /* Adicionado para permitir quebra de linha em telas menores */
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
     gap: 1em; /* Espaçamento entre itens */
 }
 
@@ -162,7 +163,7 @@ body {
 .rodape__lista {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Adicionado para permitir quebra de linha em telas menores */
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
     margin-bottom: 6em;
     list-style-type: none;
     padding: 0;
@@ -195,11 +196,10 @@ body {
     color: var(--cor-de-fundo);
 }
 
-/* Media Queries para dispositivos móveis */
-@media (max-width: 1024px) {
+/* Media Queries para dispositivos médios (tablets) */
+@media (min-width: 391px) and (max-width: 1024px) {
     .container {
-        grid-template-columns: 1fr; /* Muda para uma coluna em telas médias (tablets) */
-        margin: 0 auto;
+        grid-template-columns: 1fr; /* Muda para uma coluna */
         padding: 1.5em;
     }
 
@@ -221,7 +221,7 @@ body {
     }
 
     .rodape__lista {
-        flex-direction: row; /* Mantém em linha para telas médias */
+        flex-direction: row; /* Mantém em linha */
         align-items: center;
     }
 
@@ -248,9 +248,10 @@ body {
     }
 }
 
+/* Media Queries para dispositivos pequenos (celulares) */
 @media (max-width: 390px) {
     .container {
-        grid-template-columns: 1fr; /* Muda para uma coluna em telas pequenas */
+        grid-template-columns: 1fr; /* Muda para uma coluna */
         padding: 1em;
         margin: 0 auto;
     }
