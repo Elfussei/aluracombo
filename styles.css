@@ -290,6 +290,7 @@ body {
         height: auto;
         margin-bottom: 1em;
         order: 1; /* Imagem aparece primeiro */
+        margin-top: 50px;
     }
 
     .container__botao,
