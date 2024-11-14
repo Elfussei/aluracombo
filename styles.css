@@ -264,7 +264,7 @@ body {
         background-size: cover; /* Preenche todo o header */
         background-position: center top; /* Ajusta a posição da imagem */
         height: auto; /* Remove a altura fixa */
-        padding-top: 5em; /* Adiciona espaço no topo */
+        padding-top: 80em; /* Adiciona espaço no topo */
     }
 
     .container {
