@@ -241,14 +241,8 @@ body {
         padding: 1em;
     }
 
-    .dispositivos__lista {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .dispositivos__lista li {
-        margin-bottom: 1em;
-    }
+    /* Removemos o ajuste de flex-direction na .dispositivos__lista */
+    /* A lista permanecerá em linha horizontal */
 }
 
 /* Media Queries para Dispositivos Pequenos (até 600px) */
@@ -287,4 +281,7 @@ body {
     .rodape__texto {
         font-size: 12px;
     }
+
+    /* Novamente, não alteramos a flex-direction da .dispositivos__lista */
+    /* A lista permanecerá em linha horizontal */
 }
