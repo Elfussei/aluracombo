@@ -40,6 +40,23 @@ body {
 
 .container__caixa {
     margin: 0 6em;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mantemos a ordem padrão (do HTML) em dispositivos maiores */
+.container__titulo {
+    order: 1;
+}
+
+.container__imagem {
+    order: 2;
+}
+
+.container__botao,
+.botao_secundario,
+.container__aviso {
+    order: 3;
 }
 
 .container__titulo {
@@ -240,9 +257,6 @@ body {
         width: auto;
         padding: 1em;
     }
-
-    /* Removemos o ajuste de flex-direction na .dispositivos__lista */
-    /* A lista permanecerá em linha horizontal */
 }
 
 /* Media Queries para Dispositivos Pequenos (até 600px) */
@@ -254,6 +268,27 @@ body {
 
     .container__titulo {
         font-size: 20px;
+        margin-bottom: 1em;
+        order: 2; /* Título aparece após a imagem */
+    }
+
+    .container__imagem {
+        width: 100%;
+        height: auto;
+        margin-bottom: 1em;
+        order: 1; /* Imagem aparece primeiro */
+    }
+
+    .container__botao,
+    .botao_secundario {
+        width: 100%;
+        padding: 0.75em;
+        order: 3; /* Botões vêm após o título */
+    }
+
+    .container__aviso {
+        font-size: 12px;
+        order: 4;
     }
 
     .descricao__titulo {
@@ -272,16 +307,7 @@ body {
         font-size: 20px;
     }
 
-    .container__botao,
-    .botao_secundario {
-        width: 100%;
-        padding: 0.75em;
-    }
-
     .rodape__texto {
         font-size: 12px;
     }
-
-    /* Novamente, não alteramos a flex-direction da .dispositivos__lista */
-    /* A lista permanecerá em linha horizontal */
 }
