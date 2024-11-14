@@ -264,7 +264,7 @@ body {
         background-size: cover; /* Preenche todo o header */
         background-position: center top; /* Ajusta a posição da imagem */
         height: auto; /* Remove a altura fixa */
-        padding-top: 2em; /* Adiciona espaço no topo */
+        padding-top: 5em; /* Adiciona espaço no topo */
     }
 
     .container {
@@ -290,7 +290,7 @@ body {
         height: auto;
         margin-bottom: 1em;
         order: 1; /* Imagem aparece primeiro */
-        margin-top: 50px;
+        
     }
 
     .container__botao,
