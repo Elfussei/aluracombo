@@ -20,44 +20,36 @@ body {
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que padding e border não afetem o tamanho total dos elementos */
+    box-sizing: border-box;
 }
 
-/* Estilos para Dispositivos Móveis (Mobile First) */
+/* Classes Principais */
 .principal {
     background-image: url("img/Background.png");
     background-repeat: no-repeat;
     background-size: contain;
-    display: flex;
-    justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100vh;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1em;
-    margin: 0 auto;
-    max-width: 100%;
-    height: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 .container__caixa {
-    margin: 0 1em;
+    margin: 0 6em;
 }
 
 .container__titulo {
-    font-size: 1.75rem;
+    font-size: 28px;
     font-weight: 700;
-    margin-bottom: 0.5em;
 }
 
 .container__imagem {
     margin: 1em 0 2em 0;
-    max-width: 100%;
+    width: 80%;
     height: auto;
 }
 
@@ -86,6 +78,12 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.container__botao:hover,
+.botao_secundario:hover {
+    background-color: var(--botao-azul-efeito);
+    color: var(--cor-de-fundo);
+}
+
 .container__aviso {
     font-size: 12px;
     color: var(--cinza-secundario);
@@ -93,29 +91,28 @@ body {
 
 .secundario {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin: 0 1em;
+    margin: 0 10em;
 }
 
 .secundario__imagem {
-    width: 100%;
-    max-width: none;
+    width: 80%;
     height: auto;
-    margin: 0 auto;
+}
+
+.container__descricao {
+    padding: 2em;
 }
 
 .descricao__titulo {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 48px;
     color: var(--branco-principal);
-    margin-bottom: 0.5em;
+    margin-bottom: 0.1em;
 }
 
 .descricao__texto {
     color: var(--cinza-secundario);
-    font-size: 1rem;
-    line-height: 1.5;
 }
 
 .secundario__botao {
@@ -123,36 +120,30 @@ body {
     margin-top: 1em;
 }
 
-.container__descricao {
-    padding: 1em;
+.dispositivos {
+    text-align: center;
 }
 
 .dispositivos__titulo {
-    font-size: 2.5rem;
+    font-size: 48px;
     color: var(--branco-principal);
-    text-align: center;
-    margin-bottom: 1em;
 }
 
 .dispositivos__lista {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     list-style-type: none;
-    margin: 2em 0;
-    padding: 0;
+    margin: 5em 0;
 }
 
-.lista_item {
-    font-size: 1.5rem;
+.lista__item {
+    font-size: 32px;
     color: var(--branco-principal);
-    margin-bottom: 0.5em;
 }
 
 .rodape {
-    margin: 2em 0;
     text-align: center;
-    padding: 2em 1em;
+    margin: 5em 3em;
 }
 
 .rodape__logo {
@@ -163,16 +154,15 @@ body {
 
 .rodape__lista {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     list-style-type: none;
-    padding: 0;
+    margin-top: 1em;
 }
 
 .lista__link a {
     text-decoration: none;
     color: var(--branco-principal);
-    margin: 0.5em 0;
+    margin-left: 1em;
     transition: color 0.3s ease;
 }
 
@@ -185,25 +175,16 @@ body {
 }
 
 .rodape__texto {
+    margin: 1em 0;
     color: var(--cinza-secundario);
-    font-size: 0.75rem;
-    text-align: center;
-    margin-top: 1em;
+    font-size: 14px;
 }
 
-/* Hover Effects */
-.container__botao:hover,
-.botao_secundario:hover {
-    background-color: var(--botao-azul-efeito);
-    color: var(--cor-de-fundo);
-}
-
-/* Media Queries para Tablets */
-@media (min-width: 600px) and (max-width: 1024px) {
+/* Media Queries para Dispositivos Médios (até 1024px) */
+@media (max-width: 1024px) {
     .container {
-        display: grid;
-        grid-template-columns: 1fr;
-        padding: 1.5em;
+        display: block;
+        height: auto;
     }
 
     .container__caixa,
@@ -211,119 +192,99 @@ body {
         margin: 0 2em;
     }
 
+    .container__titulo {
+        font-size: 24px;
+    }
+
     .descricao__titulo {
-        font-size: 2.5rem;
+        font-size: 36px;
     }
 
     .dispositivos__titulo {
-        font-size: 2.75rem;
+        font-size: 36px;
     }
 
-    .lista_item {
-        font-size: 1.75rem;
-    }
-
-    .rodape__lista {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .lista__link a {
-        margin: 0 0.5em;
-    }
-
-    .container__botao,
-    .botao_secundario {
-        width: auto;
-        padding: 0.75em 1em;
-    }
-
-    .secundario__imagem {
-        width: 80%;
-    }
-
-    .rodape__logo {
-        margin: 3rem auto;
-    }
-
-    .rodape__texto {
-        font-size: 0.875rem;
-    }
-}
-
-/* Media Queries para Computadores de Mesa */
-@media (min-width: 1025px) {
-    .container {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        padding: 2em;
-        height: 100vh;
-    }
-
-    .container__caixa {
-        margin: 0 6em;
-    }
-
-    .secundario {
-        align-items: center;
-        margin: 0 10em;
-    }
-
-    .container__titulo {
+    .lista__item {
         font-size: 28px;
     }
 
-    .descricao__titulo {
-        font-size: 48px;
+    .secundario {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .descricao__texto {
-        font-size: 1rem;
-    }
-
-    .dispositivos__titulo {
-        font-size: 48px;
-    }
-
-    .lista_item {
-        font-size: 32px;
+    .secundario__imagem,
+    .container__imagem {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
     }
 
     .rodape {
-        margin: 5em 3em;
+        margin: 2em 1em;
     }
 
     .rodape__lista {
-        flex-direction: row;
-        margin-top: 1em;
+        flex-direction: column;
+        align-items: center;
     }
 
     .lista__link a {
-        margin-left: 1em;
-    }
-
-    .rodape__texto {
-        font-size: 14px;
-    }
-
-    .secundario__imagem {
-        width: 80%;
-        max-width: none;
-    }
-
-    /* Ajuste dos botões */
-    .container__botao,
-    .botao_secundario {
-        padding: 1em;
-        border-radius: 5px;
-        width: auto;
+        margin-left: 0;
         margin-bottom: 1em;
     }
 
-    /* Hover Effects para Desktop */
-    .container__botao:hover,
-    .botao_secundario:hover {
-        background-color: var(--botao-azul-efeito);
-        color: var(--cor-de-fundo);
+    .container__botao,
+    .botao_secundario {
+        width: auto;
+        padding: 1em;
+    }
+
+    .dispositivos__lista {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dispositivos__lista li {
+        margin-bottom: 1em;
+    }
+}
+
+/* Media Queries para Dispositivos Pequenos (até 600px) */
+@media (max-width: 600px) {
+    .container__caixa,
+    .secundario {
+        margin: 0 1em;
+    }
+
+    .container__titulo {
+        font-size: 20px;
+    }
+
+    .descricao__titulo {
+        font-size: 24px;
+    }
+
+    .descricao__texto {
+        font-size: 14px;
+    }
+
+    .dispositivos__titulo {
+        font-size: 24px;
+    }
+
+    .lista__item {
+        font-size: 20px;
+    }
+
+    .container__botao,
+    .botao_secundario {
+        width: 100%;
+        padding: 0.75em;
+    }
+
+    .rodape__texto {
+        font-size: 12px;
     }
 }
