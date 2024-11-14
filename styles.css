@@ -1,12 +1,11 @@
 /* Variáveis Globais */
-:root { 
+:root {
     --branco-principal: #FFFFFF;
     --cinza-secundario: #C0C0C0;
     --botao-azul: #167BF7;
     --cor-de-fundo: #00030C;
     --fonte-principal: 'Inter', sans-serif;
-    --botao-azul-efeito: #72affb; /* Para mobile */
-    --botao-azul-efeito-desktop: #3c92fa; /* Para desktop */
+    --botao-azul-efeito: #3c92fa;
 }
 
 /* Estilos Globais */
@@ -14,7 +13,7 @@ body {
     background-color: var(--cor-de-fundo);
     color: var(--branco-principal);
     font-family: var(--fonte-principal);
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 400;
 }
 
@@ -24,6 +23,7 @@ body {
     box-sizing: border-box; /* Garante que padding e border não afetem o tamanho total dos elementos */
 }
 
+/* Estilos para Dispositivos Móveis (Mobile First) */
 .principal {
     background-image: url("img/Background.png");
     background-repeat: no-repeat;
@@ -32,46 +32,21 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100vh; /* Ocupa a altura total */
+    height: 100vh;
 }
 
 .container {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas por padrão */
-    gap: 2em;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2em;
-}
-
-.container__botao {
-    background-color: var(--botao-azul);
-    border-radius: 0.3125rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 1em;
-    color: var(--branco-principal);
-    display: block;
-    text-decoration: none;
-    margin-bottom: 1em;
-    text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 auto;
+    max-width: 100%;
+    height: 100%;
 }
 
-.botao_secundario {
-    background-color: transparent;
-    border: 0.125rem solid var(--branco-principal);
-    padding: 0.5em;
-    border-radius: 0.3125rem;
-    text-align: center;
-    display: block;
-    margin-bottom: 1em;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.container__aviso {
-    font-size: 0.75rem;
-    color: var(--cinza-secundario);
+.container__caixa {
+    margin: 0 1em;
 }
 
 .container__titulo {
@@ -86,29 +61,55 @@ body {
     height: auto;
 }
 
-.container__caixa {
-    margin: 0 6em;
+.container__botao {
+    background-color: var(--botao-azul);
+    border-radius: 5px;
+    padding: 1em;
+    color: var(--branco-principal);
+    display: block;
+    text-decoration: none;
+    margin-bottom: 1em;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.secundario__imagem {
-    width: 80%;
-    max-width: 300px;
-    height: auto;
-    margin: 0 auto;
+.botao_secundario {
+    background-color: transparent;
+    border: 2px solid var(--branco-principal);
+    padding: 1em;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    margin-bottom: 1em;
+    color: var(--branco-principal);
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container__aviso {
+    font-size: 12px;
+    color: var(--cinza-secundario);
 }
 
 .secundario {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 10em;
+    margin: 0 1em;
+}
+
+.secundario__imagem {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 0 auto;
 }
 
 .descricao__titulo {
     font-weight: 700;
-    font-size: 48px;
+    font-size: 1.5rem;
     color: var(--branco-principal);
-    margin-bottom: 0.1em;
+    margin-bottom: 0.5em;
 }
 
 .descricao__texto {
@@ -123,32 +124,29 @@ body {
 }
 
 .container__descricao {
-    padding: 2em;
+    padding: 1em;
+}
+
+.dispositivos__titulo {
+    font-size: 2.5rem;
+    color: var(--branco-principal);
+    text-align: center;
+    margin-bottom: 1em;
 }
 
 .dispositivos__lista {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     list-style-type: none;
-    margin: 5em 0;
-    flex-wrap: wrap;
-    gap: 1em;
-}
-
-.dispositivos {
-    text-align: center;
-    margin: 1em;
-}
-
-.dispositivos__titulo {
-    font-size: 3rem;
-    color: var(--branco-principal);
-    margin-bottom: 1em;
+    margin: 2em 0;
+    padding: 0;
 }
 
 .lista_item {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--branco-principal);
+    margin-bottom: 0.5em;
 }
 
 .rodape {
@@ -159,15 +157,14 @@ body {
 
 .rodape__logo {
     display: block;
-    margin: 3.75rem auto;
+    margin: 2rem auto;
     max-width: 200px;
 }
 
 .rodape__lista {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 6em;
+    flex-direction: column;
+    align-items: center;
     list-style-type: none;
     padding: 0;
 }
@@ -175,7 +172,7 @@ body {
 .lista__link a {
     text-decoration: none;
     color: var(--branco-principal);
-    margin-left: 1em;
+    margin: 0.5em 0;
     transition: color 0.3s ease;
 }
 
@@ -184,13 +181,14 @@ body {
 }
 
 .lista__link a:active {
-    color: violet;
+    color: purple;
 }
 
 .rodape__texto {
     color: var(--cinza-secundario);
+    font-size: 0.75rem;
     text-align: center;
-    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
 /* Hover Effects */
@@ -200,10 +198,11 @@ body {
     color: var(--cor-de-fundo);
 }
 
-/* Media Queries para dispositivos médios (tablets) */
-@media (min-width: 391px) and (max-width: 1024px) {
+/* Media Queries para Tablets */
+@media (min-width: 600px) and (max-width: 1024px) {
     .container {
-        grid-template-columns: 1fr; /* Uma coluna */
+        display: grid;
+        grid-template-columns: 1fr;
         padding: 1.5em;
     }
 
@@ -252,25 +251,34 @@ body {
     }
 }
 
-/* Media Queries para dispositivos grandes (desktops) */
+/* Media Queries para Computadores de Mesa */
 @media (min-width: 1025px) {
-    /* Ajustes adicionais para desktops */
     .container {
-        grid-template-columns: 1fr 1fr; /* Duas colunas */
+        display: grid;
+        grid-template-columns: 50% 50%;
         padding: 2em;
+        height: 100vh;
     }
 
-    .container__botao {
-        border-radius: 5px;
-        padding: 1em;
+    .container__caixa {
+        margin: 0 6em;
     }
 
-    .botao_secundario {
-        border: 2px solid var(--branco-principal);
+    .secundario {
+        align-items: center;
+        margin: 0 10em;
+    }
+
+    .container__titulo {
+        font-size: 28px;
     }
 
     .descricao__titulo {
         font-size: 48px;
+    }
+
+    .descricao__texto {
+        font-size: 1rem;
     }
 
     .dispositivos__titulo {
@@ -278,7 +286,7 @@ body {
     }
 
     .lista_item {
-        font-size: 2rem; /* Mantém o tamanho ou ajusta conforme necessário */
+        font-size: 32px;
     }
 
     .rodape {
@@ -287,7 +295,7 @@ body {
 
     .rodape__lista {
         flex-direction: row;
-        margin-bottom: 6em;
+        margin-top: 1em;
     }
 
     .lista__link a {
@@ -298,63 +306,24 @@ body {
         font-size: 14px;
     }
 
-    /* Hover Effects para Desktop */
-    .container__botao:hover {
-        background-color: var(--botao-azul-efeito-desktop);
-        color: var(--cor-de-fundo);
-    }
-}
-
-/* Media Queries para dispositivos pequenos (celulares) */
-@media (max-width: 390px) {
-    .container {
-        grid-template-columns: 1fr;
-        padding: 1em;
-        margin: 0 auto;
-    }
-
-    .container__caixa,
-    .secundario {
-        margin: 0 1em;
-    }
-
-    .descricao__titulo {
-        font-size: 1.5rem;
-    }
-
-    .dispositivos__titulo {
-        font-size: 2.5rem;
-    }
-
-    .lista_item {
-        font-size: 1.5rem;
-    }
-
-    .rodape__lista {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .lista__link a {
-        margin: 0.5em 0;
-    }
-
-    .container__botao,
-    .botao_secundario {
-        width: 100%;
-        padding: 0.75em;
-    }
-
     .secundario__imagem {
-        width: 100%;
+        width: 80%;
         max-width: none;
     }
 
-    .rodape__logo {
-        margin: 2rem auto;
+    /* Ajuste dos botões */
+    .container__botao,
+    .botao_secundario {
+        padding: 1em;
+        border-radius: 5px;
+        width: auto;
+        margin-bottom: 1em;
     }
 
-    .rodape__texto {
-        font-size: 0.75rem;
+    /* Hover Effects para Desktop */
+    .container__botao:hover,
+    .botao_secundario:hover {
+        background-color: var(--botao-azul-efeito);
+        color: var(--cor-de-fundo);
     }
 }
