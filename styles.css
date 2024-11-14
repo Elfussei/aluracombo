@@ -40,12 +40,28 @@ body {
 
 .container__caixa {
     margin: 0 6em;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mantemos a ordem padrão (do HTML) em dispositivos maiores */
+.container__titulo {
+    order: 1;
+}
+
+.container__imagem {
+    order: 2;
+}
+
+.container__botao,
+.botao_secundario,
+.container__aviso {
+    order: 3;
 }
 
 .container__titulo {
     font-size: 28px;
     font-weight: 700;
-    margin-bottom: 1em;
 }
 
 .container__imagem {
@@ -250,39 +266,29 @@ body {
         margin: 0 1em;
     }
 
-    /* Reorganização usando CSS Grid */
-    .container__caixa {
-        display: grid;
-        grid-template-areas:
-            "image"
-            "title"
-            "buttons"
-            "aviso";
-        grid-gap: 1em;
-    }
-
     .container__titulo {
-        grid-area: title;
         font-size: 20px;
+        margin-bottom: 1em;
+        order: 2; /* Título aparece após a imagem */
     }
 
     .container__imagem {
-        grid-area: image;
         width: 100%;
         height: auto;
-        margin: 0 auto;
+        margin-bottom: 1em;
+        order: 1; /* Imagem aparece primeiro */
     }
 
     .container__botao,
     .botao_secundario {
-        grid-area: buttons;
         width: 100%;
         padding: 0.75em;
+        order: 3; /* Botões vêm após o título */
     }
 
     .container__aviso {
-        grid-area: aviso;
         font-size: 12px;
+        order: 4;
     }
 
     .descricao__titulo {
