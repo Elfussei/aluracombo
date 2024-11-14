@@ -1,12 +1,15 @@
+/* Variáveis Globais */
 :root { 
     --branco-principal: #FFFFFF;
     --cinza-secundario: #C0C0C0;
     --botao-azul: #167BF7;
     --cor-de-fundo: #00030C;
     --fonte-principal: 'Inter', sans-serif;
-    --botao-azul-efeito: #72affb; 
+    --botao-azul-efeito: #72affb; /* Para mobile */
+    --botao-azul-efeito-desktop: #3c92fa; /* Para desktop */
 }
 
+/* Estilos Globais */
 body {
     background-color: var(--cor-de-fundo);
     color: var(--branco-principal);
@@ -25,22 +28,22 @@ body {
     background-image: url("img/Background.png");
     background-repeat: no-repeat;
     background-size: contain;
-    display: flex; /* Adicionado para alinhar itens centralmente */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    height: 100vh; /* Garantir que ocupe a altura total */
+    height: 100vh; /* Ocupa a altura total */
 }
 
 .container {
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas para dispositivos grandes */
-    gap: 2em; /* Espaçamento entre colunas */
-    max-width: 1200px; /* Limita a largura máxima para evitar estiramento em telas muito grandes */
+    grid-template-columns: 1fr 1fr; /* Duas colunas por padrão */
+    gap: 2em;
+    max-width: 1200px;
     width: 100%;
-    margin: 0 auto; /* Centraliza a container */
-    padding: 2em; /* Espaçamento interno */
+    margin: 0 auto;
+    padding: 2em;
 }
 
 .container__botao {
@@ -51,8 +54,8 @@ body {
     display: block;
     text-decoration: none;
     margin-bottom: 1em;
-    text-align: center; /* Centraliza o texto */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .botao_secundario {
@@ -74,7 +77,7 @@ body {
 .container__titulo {
     font-size: 1.75rem;
     font-weight: 700;
-    margin-bottom: 0.5em; /* Espaçamento abaixo do título */
+    margin-bottom: 0.5em;
 }
 
 .container__imagem {
@@ -89,9 +92,9 @@ body {
 
 .secundario__imagem {
     width: 80%;
-    max-width: 300px; /* Limita a largura máxima para melhor adaptação */
+    max-width: 300px;
     height: auto;
-    margin: 0 auto; /* Centraliza a imagem */
+    margin: 0 auto;
 }
 
 .secundario {
@@ -110,7 +113,7 @@ body {
 
 .descricao__texto {
     color: var(--cinza-secundario);
-    font-size: 1rem; /* Ajustado para melhor legibilidade */
+    font-size: 1rem;
     line-height: 1.5;
 }
 
@@ -128,8 +131,8 @@ body {
     justify-content: center;
     list-style-type: none;
     margin: 5em 0;
-    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
-    gap: 1em; /* Espaçamento entre itens */
+    flex-wrap: wrap;
+    gap: 1em;
 }
 
 .dispositivos {
@@ -157,13 +160,13 @@ body {
 .rodape__logo {
     display: block;
     margin: 3.75rem auto;
-    max-width: 200px; /* Limita a largura do logo */
+    max-width: 200px;
 }
 
 .rodape__lista {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    flex-wrap: wrap;
     margin-bottom: 6em;
     list-style-type: none;
     padding: 0;
@@ -190,6 +193,7 @@ body {
     margin-bottom: 1em;
 }
 
+/* Hover Effects */
 .container__botao:hover,
 .botao_secundario:hover {
     background-color: var(--botao-azul-efeito);
@@ -199,105 +203,158 @@ body {
 /* Media Queries para dispositivos médios (tablets) */
 @media (min-width: 391px) and (max-width: 1024px) {
     .container {
-        grid-template-columns: 1fr; /* Muda para uma coluna */
+        grid-template-columns: 1fr; /* Uma coluna */
         padding: 1.5em;
     }
 
     .container__caixa,
     .secundario {
-        margin: 0 2em; /* Reduz a margem lateral */
+        margin: 0 2em;
     }
 
     .descricao__titulo {
-        font-size: 2.5rem; /* Ajusta o tamanho da fonte */
+        font-size: 2.5rem;
     }
 
     .dispositivos__titulo {
-        font-size: 2.75rem; /* Ajuste do tamanho da fonte */
+        font-size: 2.75rem;
     }
 
     .lista_item {
-        font-size: 1.75rem; /* Ajuste do tamanho da fonte */
+        font-size: 1.75rem;
     }
 
     .rodape__lista {
-        flex-direction: row; /* Mantém em linha */
+        flex-direction: row;
         align-items: center;
     }
 
     .lista__link a {
-        margin: 0 0.5em; /* Ajusta o espaçamento entre links */
+        margin: 0 0.5em;
     }
 
     .container__botao,
     .botao_secundario {
-        width: auto; /* Mantém a largura natural */
-        padding: 0.75em 1em; /* Ajusta o padding */
+        width: auto;
+        padding: 0.75em 1em;
     }
 
     .secundario__imagem {
-        width: 80%; /* Mantém a proporção */
+        width: 80%;
     }
 
     .rodape__logo {
-        margin: 3rem auto; /* Mantém a margem */
+        margin: 3rem auto;
     }
 
     .rodape__texto {
-        font-size: 0.875rem; /* Ajusta o tamanho da fonte */
+        font-size: 0.875rem;
+    }
+}
+
+/* Media Queries para dispositivos grandes (desktops) */
+@media (min-width: 1025px) {
+    /* Ajustes adicionais para desktops */
+    .container {
+        grid-template-columns: 1fr 1fr; /* Duas colunas */
+        padding: 2em;
+    }
+
+    .container__botao {
+        border-radius: 5px;
+        padding: 1em;
+    }
+
+    .botao_secundario {
+        border: 2px solid var(--branco-principal);
+    }
+
+    .descricao__titulo {
+        font-size: 48px;
+    }
+
+    .dispositivos__titulo {
+        font-size: 48px;
+    }
+
+    .lista_item {
+        font-size: 2rem; /* Mantém o tamanho ou ajusta conforme necessário */
+    }
+
+    .rodape {
+        margin: 5em 3em;
+    }
+
+    .rodape__lista {
+        flex-direction: row;
+        margin-bottom: 6em;
+    }
+
+    .lista__link a {
+        margin-left: 1em;
+    }
+
+    .rodape__texto {
+        font-size: 14px;
+    }
+
+    /* Hover Effects para Desktop */
+    .container__botao:hover {
+        background-color: var(--botao-azul-efeito-desktop);
+        color: var(--cor-de-fundo);
     }
 }
 
 /* Media Queries para dispositivos pequenos (celulares) */
 @media (max-width: 390px) {
     .container {
-        grid-template-columns: 1fr; /* Muda para uma coluna */
+        grid-template-columns: 1fr;
         padding: 1em;
         margin: 0 auto;
     }
 
     .container__caixa,
     .secundario {
-        margin: 0 1em; /* Reduz ainda mais a margem lateral */
+        margin: 0 1em;
     }
 
     .descricao__titulo {
-        font-size: 1.5rem; /* Reduz o tamanho da fonte */
+        font-size: 1.5rem;
     }
 
     .dispositivos__titulo {
-        font-size: 2.5rem; /* Ajuste do tamanho da fonte */
+        font-size: 2.5rem;
     }
 
     .lista_item {
-        font-size: 1.5rem; /* Ajuste do tamanho da fonte */
+        font-size: 1.5rem;
     }
 
     .rodape__lista {
-        flex-direction: column; /* Alinha os itens em coluna */
+        flex-direction: column;
         align-items: center;
     }
 
     .lista__link a {
-        margin: 0.5em 0; /* Ajusta o espaçamento entre links */
+        margin: 0.5em 0;
     }
 
     .container__botao,
     .botao_secundario {
-        width: 100%; /* Botões ocupam toda a largura disponível */
-        padding: 0.75em; /* Ajusta o padding para melhor toque */
+        width: 100%;
+        padding: 0.75em;
     }
 
     .secundario__imagem {
-        width: 100%; /* Imagem ocupa toda a largura disponível */
-        max-width: none; /* Remove a limitação de largura */
+        width: 100%;
+        max-width: none;
     }
 
     .rodape__logo {
-        margin: 2rem auto; /* Reduz a margem */
+        margin: 2rem auto;
     }
 
     .rodape__texto {
-        font-size: 0.75rem; /* Ajusta o tamanho da fonte */
+        font-size: 0.75rem;
     }
 }
