@@ -28,40 +28,33 @@ body {
     background-image: url("img/Background.png");
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center; /* Centraliza a imagem */
+    display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
+    height: 100vh; /* Altura fixa para desktops */
+    position: relative; /* Para possíveis posicionamentos absolutos futuros */
 }
 
 .container {
     height: 100vh;
     display: grid;
     grid-template-columns: 50% 50%;
+    align-items: center; /* Centraliza verticalmente os itens */
 }
 
 .container__caixa {
     margin: 0 6em;
     display: flex;
     flex-direction: column;
-}
-
-/* Mantemos a ordem padrão (do HTML) em dispositivos maiores */
-.container__titulo {
-    order: 1;
-}
-
-.container__imagem {
-    order: 2;
-}
-
-.container__botao,
-.botao_secundario,
-.container__aviso {
-    order: 3;
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
 }
 
 .container__titulo {
     font-size: 28px;
     font-weight: 700;
+    margin-bottom: 1em;
 }
 
 .container__imagem {
@@ -266,6 +259,26 @@ body {
         margin: 0 1em;
     }
 
+    /* Ajustes para evitar sobreposição e melhorar o layout */
+    .principal {
+        background-size: cover; /* Preenche todo o header */
+        background-position: center top; /* Ajusta a posição da imagem */
+        height: auto; /* Remove a altura fixa */
+        padding-top: 2em; /* Adiciona espaço no topo */
+    }
+
+    .container {
+        height: auto; /* Remove a altura fixa */
+        padding: 1em 0; /* Adiciona padding vertical */
+    }
+
+    .container__caixa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+    }
+
     .container__titulo {
         font-size: 20px;
         margin-bottom: 1em;
@@ -289,6 +302,7 @@ body {
     .container__aviso {
         font-size: 12px;
         order: 4;
+        text-align: center;
     }
 
     .descricao__titulo {
@@ -309,5 +323,15 @@ body {
 
     .rodape__texto {
         font-size: 12px;
+    }
+
+    /* Garantir que a lista de dispositivos permaneça em linha horizontal */
+    .dispositivos__lista {
+        flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se necessário */
+    }
+
+    .lista__item {
+        flex: 1 1 30%; /* Permite que os itens ocupem até 30% do container */
+        text-align: center;
     }
 }
