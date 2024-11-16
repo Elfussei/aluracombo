@@ -3,7 +3,7 @@
     --cinza-secundario: #C0C0C0;
     --botao-azul: #167BF7;
     --cor-de-fundo: #00030C;
-    --fonte-principal: 'Inter', sans-serif;
+    --fonte-principal: 'Inter';
     --botao-azul-efeito: #3c92fa;
 }
 
@@ -13,47 +13,25 @@ body {
     font-family: var(--fonte-principal);
     font-size: 16px;
     font-weight: 400;
-    margin: 0;
-    padding: 0;
 }
 
 * {
-    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .principal {
     background-image: url("img/Background.png");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
+    background-size: contain;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    padding: 2em 1em;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2em 1em;
-}
-
-.container__caixa {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.container__titulo {
-    font-size: 2em;
-    font-weight: 700;
-    margin-bottom: 1em;
-}
-
-.container__imagem {
-    max-width: 100%;
-    height: auto;
-    margin: 1em 0 2em 0;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 .container__botao {
@@ -68,177 +46,201 @@ body {
 
 .botao_secundario {
     background-color: transparent;
-    border: 2px solid var(--branco-principal);
+    border: 2px solid var(--branco-principal)
 }
 
 .container__aviso {
-    font-size: 0.75em;
+    font-size: 12px;
     color: var(--cinza-secundario);
 }
 
-.secundario {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 2em 1em;
+.container__titulo {
+    font-size: 28px;
+    font-weight: 700;
 }
 
-.secundario:nth-child(even) .secundario__imagem {
-    order: 2;
+.container__imagem {
+    margin: 1em 0 2em 0;
+}
+
+.container__caixa {
+    margin: 0 6em;
 }
 
 .secundario__imagem {
-    flex: 1 1 50%;
-    max-width: 100%;
-    height: auto;
+    width: 80%;
 }
 
-.container__descricao {
-    flex: 1 1 50%;
-    padding: 1em;
+.secundario {
+    align-items: center;
+    margin: 0 10em;
 }
 
 .descricao__titulo {
     font-weight: 700;
-    font-size: 2em;
+    font-size: 48px;
     color: var(--branco-principal);
-    margin-bottom: 0.5em;
+    margin-bottom: 0.1em;
 }
 
 .descricao__texto {
     color: var(--cinza-secundario);
-    font-size: 1em;
 }
 
 .secundario__botao {
     display: inline-block;
     margin-top: 1em;
-    background-color: var(--botao-azul);
-    border-radius: 5px;
-    padding: 1em;
-    color: var(--branco-principal);
-    text-decoration: none;
 }
 
-.dispositivos {
-    text-align: center;
-    padding: 2em 1em;
-}
-
-.dispositivos__titulo {
-    font-size: 2em;
-    color: var(--branco-principal);
-    margin-bottom: 2em;
+.container__descricao {
+    padding: 2em;
 }
 
 .dispositivos__lista {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 5em 0;
 }
 
-.dispositivos__lista li {
-    flex: 1 1 100px;
-    margin: 1em;
+.dispositivos {
+    text-align: center;
+}
+
+.dispositivos__titulo {
+    font-size: 48px;
+    color: var(--branco-principal);
 }
 
 .lista__item {
-    font-size: 1.5em;
+    font-size: 32px;
     color: var(--branco-principal);
-    margin-top: 0.5em;
 }
 
 .rodape {
     text-align: center;
-    padding: 2em 1em;
-    background-color: var(--cor-de-fundo);
-}
-
-.rodape__logo {
-    max-width: 150px;
-    height: auto;
+    margin: 5em 3em;
 }
 
 .rodape__lista {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     list-style-type: none;
     margin-top: 1em;
-    padding: 0;
 }
 
-.lista__link {
-    margin: 0.5em 1em;
-}
-
-.lista__link a {
+.lista__link a{
     text-decoration: none;
     color: var(--branco-principal);
-    font-size: 0.875em;
+    margin-left: 1em;
+}
+
+.rodape__texto {
+    margin: 1em 0;
+    color: var(--cinza-secundario);
+    font-size: 14px;
 }
 
 .lista__link a:hover {
     color: var(--botao-azul);
 }
 
-.rodape__texto {
-    margin: 1em 0;
-    color: var(--cinza-secundario);
-    font-size: 0.75em;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+.lista__link a:active {
+    color: purple;
 }
 
-/* Media Queries para Responsividade */
+.container__botao:hover {
+    background-color: var(--botao-azul-efeito);
+    color: var(--cor-de-fundo);
+}
+
+/* Seu CSS existente permanece o mesmo */
+
+/* Adicione o seguinte código ao final do seu arquivo CSS */
+
 @media (max-width: 768px) {
-    .principal {
-        background-size: cover;
-        padding: 2em 1em;
+    .container {
+        display: block;
+        height: auto;
+        margin: 0;
+    }
+
+    .container__caixa {
+        margin: 1em;
     }
 
     .container__titulo {
-        font-size: 1.5em;
+        font-size: 24px;
+    }
+
+    .container__imagem {
+        width: 100%;
+        height: auto;
+    }
+
+    .container__botao {
+        width: 100%;
+        padding: 1em;
+    }
+
+    .botao_secundario {
+        width: 100%;
+    }
+
+    .container__aviso {
+        font-size: 12px;
     }
 
     .secundario {
-        flex-direction: column;
-        padding: 2em 1em;
+        display: block;
+        margin: 1em 0;
     }
 
-    .secundario__imagem,
-    .container__descricao {
-        flex: 1 1 100%;
-        max-width: 100%;
+    .container__descricao,
+    .secundario__imagem {
+        width: 100%;
+        margin: 1em 0;
     }
 
     .descricao__titulo {
-        font-size: 1.5em;
+        font-size: 28px;
     }
 
     .descricao__texto {
-        font-size: 1em;
+        font-size: 16px;
     }
 
-    .dispositivos__titulo {
-        font-size: 1.5em;
+    .secundario__botao {
+        width: 100%;
+        padding: 1em;
+    }
+
+    .dispositivos__lista {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .dispositivos__lista li {
+        margin: 1em 0;
+        text-align: center;
     }
 
     .lista__item {
-        font-size: 1em;
+        font-size: 24px;
     }
 
     .rodape__lista {
-        flex-direction: column;
+        display: block;
+        margin: 1em 0;
     }
 
     .lista__link {
         margin: 0.5em 0;
+    }
+
+    .rodape__texto {
+        font-size: 12px;
+        margin: 1em;
     }
 }
