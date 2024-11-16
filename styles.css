@@ -244,3 +244,98 @@ body {
         margin: 1em;
     }
 }
+
+/* Mantenha todo o seu CSS existente como está */
+
+/* Adicione o seguinte código ao final do seu arquivo CSS */
+
+@media (max-width: 768px) {
+    .principal .container {
+        display: block;
+        height: auto;
+        margin: 0;
+    }
+
+    .principal .container__caixa {
+        margin: 1em;
+    }
+
+    .principal .container__titulo {
+        font-size: 24px;
+    }
+
+    .principal .container__imagem {
+        width: 100%;
+        height: auto;
+    }
+
+    .principal .container__botao {
+        width: 100%;
+        padding: 1em;
+    }
+
+    .principal .botao_secundario {
+        width: 100%;
+    }
+
+    .principal .container__aviso {
+        font-size: 12px;
+    }
+
+    /* Estilos para as seções secundárias */
+    .secundario {
+        display: block;
+        margin: 1em 0;
+    }
+
+    .secundario .container__descricao,
+    .secundario .secundario__imagem {
+        width: 100%;
+        margin: 1em 0;
+    }
+
+    .secundario .descricao__titulo {
+        font-size: 28px;
+    }
+
+    .secundario .descricao__texto {
+        font-size: 16px;
+    }
+
+    .secundario .secundario__botao {
+        width: 100%;
+        padding: 1em;
+    }
+
+    /* Estilos para a seção de dispositivos */
+    .dispositivos__lista {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .dispositivos__lista li {
+        margin: 1em 0;
+        text-align: center;
+    }
+
+    .lista__item {
+        font-size: 24px;
+    }
+
+    /* Estilos para o rodapé */
+    .rodape__lista {
+        display: block;
+        margin: 1em 0;
+    }
+
+    .rodape__lista .lista__link {
+        margin: 0.5em 0;
+    }
+
+    .rodape__texto {
+        font-size: 12px;
+        margin: 1em;
+    }
+}
+
